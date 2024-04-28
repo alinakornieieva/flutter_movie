@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie/features/auth/auth_screen.dart';
+import 'package:flutter_movie/features/auth/auth.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             centerTitle: true),
         useMaterial3: true,
       ),
-      home: const AuthScreen(),
+      home: AuthScreen(),
     );
   }
 }
