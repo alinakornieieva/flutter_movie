@@ -18,6 +18,7 @@ class _AuthFormState extends State<AuthForm> {
 
     if (email == 'admin' && password == 'admin') {
       error = null;
+      Navigator.of(context).pushReplacementNamed('/home');
     } else {
       error = 'Wrong data. Try again.';
     }
