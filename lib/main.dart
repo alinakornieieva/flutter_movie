@@ -13,6 +13,11 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: const Color.fromRGBO(3, 37, 65, 1),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey.shade500,
+          ),
           textTheme: const TextTheme(
               bodyMedium: TextStyle(fontSize: 16),
               bodyLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
@@ -22,6 +27,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true),
           useMaterial3: true,
         ),
+        initialRoute: '/home',
         routes: routes);
   }
 }
