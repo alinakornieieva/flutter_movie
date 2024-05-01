@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie/features/list/list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,11 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedTab = 0;
 
-  static const List<Widget> _widgetOptions = [
-    Text('Home'),
-    Text('Movies'),
-    Text('TV shows')
-  ];
+  static const _widgetOptions = [List(), Text('Movies'), Text('TV shows')];
 
   void selectTab(int index) {
     if (index == _selectedTab) return;
