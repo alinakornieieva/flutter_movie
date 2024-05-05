@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import '../list.dart';
 
-class ListCard extends StatelessWidget {
+class ListCard extends StatefulWidget {
   const ListCard({super.key, required this.item});
 
   final Item item;
+
+  @override
+  State<ListCard> createState() => _ListCardState();
+}
+
+class _ListCardState extends State<ListCard> {
+  void onCardTap(int index) {
+    Navigator.of(context).pushNamed('/home/details/', arguments: index);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => onCardTap(widget.item.id),
         child: Container(
           decoration: BoxDecoration(
               color: Colors.white,
@@ -29,7 +38,7 @@ class ListCard extends StatelessWidget {
           child: Row(
             children: [
               Image.network(
-                item.imageUrl,
+                widget.item.imageUrl,
               ),
               Expanded(
                 child: Padding(
@@ -38,18 +47,18 @@ class ListCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(item.title,
+                      Text(widget.item.title,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 22)),
-                      Text(item.date,
+                      Text(widget.item.date,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.7))),
                       const SizedBox(height: 15),
-                      Text(item.decsription,
+                      Text(widget.item.decsription,
                           maxLines: 2, overflow: TextOverflow.ellipsis)
                     ],
                   ),

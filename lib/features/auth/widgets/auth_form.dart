@@ -43,11 +43,16 @@ class _AuthFormState extends State<AuthForm> {
         const Text('Email'),
         const SizedBox(height: 5),
         TextField(
-            controller: _emailFieldController, decoration: textFieldDecoration),
+            cursorColor: const Color.fromRGBO(1, 180, 228, 1),
+            style: const TextStyle(fontSize: 18),
+            controller: _emailFieldController,
+            decoration: textFieldDecoration),
         const SizedBox(height: 25),
         const Text('Password'),
         const SizedBox(height: 5),
         TextField(
+            cursorColor: const Color.fromRGBO(1, 180, 228, 1),
+            style: const TextStyle(fontSize: 18),
             obscureText: true,
             controller: _passwordFieldController,
             decoration: textFieldDecoration),

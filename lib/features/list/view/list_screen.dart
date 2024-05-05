@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie/features/list/list.dart';
 
 class Item {
+  final int id;
   final String title;
   final String decsription;
   final String imageUrl;
   final String date;
 
   Item(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.decsription,
       required this.imageUrl,
       required this.date});
@@ -24,6 +26,7 @@ class List extends StatefulWidget {
 class _ListState extends State<List> {
   final _movies = [
     Item(
+        id: 1,
         title: 'Movie name',
         decsription:
             'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
@@ -31,6 +34,7 @@ class _ListState extends State<List> {
             'https://images.moviesanywhere.com/817ffd33edb160c17d14a14002605c30/3d62cdca-e516-49f2-9390-97e99992a209.jpg?h=375&resize=fit&w=250',
         date: 'March 8, 2022'),
     Item(
+        id: 2,
         title: 'Mortal Kombat',
         decsription:
             'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
@@ -38,6 +42,7 @@ class _ListState extends State<List> {
             'https://m.media-amazon.com/images/M/MV5BYjZmMjdlNDEtOGE0NC00MmQyLWIyNTgtMzc1NWRjYTYzMWZmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg',
         date: 'April 7, 2021'),
     Item(
+        id: 3,
         title: 'Random',
         decsription:
             'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
@@ -45,6 +50,7 @@ class _ListState extends State<List> {
             'https://m.media-amazon.com/images/M/MV5BYjZmMjdlNDEtOGE0NC00MmQyLWIyNTgtMzc1NWRjYTYzMWZmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg',
         date: 'April 7, 2021'),
     Item(
+        id: 4,
         title: 'Just another movie',
         decsription:
             'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
@@ -52,6 +58,7 @@ class _ListState extends State<List> {
             'https://m.media-amazon.com/images/M/MV5BYjZmMjdlNDEtOGE0NC00MmQyLWIyNTgtMzc1NWRjYTYzMWZmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg',
         date: 'April 7, 2021'),
     Item(
+        id: 5,
         title: 'Smth new',
         decsription:
             'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
@@ -59,6 +66,7 @@ class _ListState extends State<List> {
             'https://m.media-amazon.com/images/M/MV5BYjZmMjdlNDEtOGE0NC00MmQyLWIyNTgtMzc1NWRjYTYzMWZmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg',
         date: 'April 7, 2021'),
     Item(
+        id: 6,
         title: 'Something another',
         decsription:
             'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
@@ -104,7 +112,7 @@ class _ListState extends State<List> {
               ListCard(item: _filteredMovies[index]),
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: TextField(
               controller: _searchController,
               cursorColor: const Color.fromRGBO(1, 180, 228, 1),
