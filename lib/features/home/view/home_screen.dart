@@ -11,8 +11,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedTab = 0;
 
-  static const _widgetOptions = [List(), Text('Movies'), Text('TV shows')];
-
   void selectTab(int index) {
     if (index == _selectedTab) return;
     setState(() {
@@ -24,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('TheMovieDB')),
-      body: Center(child: _widgetOptions[_selectedTab]),
+      body: IndexedStack(
+          index: _selectedTab,
+          children: const [Text('Home'), List(), Text('TV shows')]),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,
           items: const [

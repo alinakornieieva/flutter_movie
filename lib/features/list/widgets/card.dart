@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import '../list.dart';
 
-class ListCard extends StatefulWidget {
-  const ListCard({super.key});
+class ListCard extends StatelessWidget {
+  const ListCard({super.key, required this.item});
 
-  @override
-  State<ListCard> createState() => _ListCardState();
-}
+  final Item item;
 
-class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,7 +29,8 @@ class _ListCardState extends State<ListCard> {
           child: Row(
             children: [
               Image.network(
-                  'https://m.media-amazon.com/images/M/MV5BYjZmMjdlNDEtOGE0NC00MmQyLWIyNTgtMzc1NWRjYTYzMWZmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg'),
+                item.imageUrl,
+              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -39,21 +38,19 @@ class _ListCardState extends State<ListCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Mortal Kombat',
+                      Text(item.title,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 22)),
-                      Text('April 7, 2021',
+                      Text(item.date,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.7))),
                       const SizedBox(height: 15),
-                      const Text(
-                          'Washed-up MMA fighter Cole Young, unware of his heritage and that caused',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis)
+                      Text(item.decsription,
+                          maxLines: 2, overflow: TextOverflow.ellipsis)
                     ],
                   ),
                 ),
